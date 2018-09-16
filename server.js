@@ -25,6 +25,11 @@ io.on('connection', socket => {
 		};
 		console.log(players);
 	});
+
+	socket.on('disconnect', () => {
+    console.log('user disconnected', socket.id);
+		delete players[socket.id];
+  });
 });
 
 setInterval( () => {
@@ -32,4 +37,3 @@ setInterval( () => {
 }, 20000 );
 
 server.listen(5000, () => console.log('Starting server on port 5000') );
-
