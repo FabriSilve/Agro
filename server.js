@@ -32,8 +32,5 @@ io.on('connection', socket => {
   });
 });
 
-setInterval( () => {
-	io.sockets.emit('message', 'hi');
-}, 20000 );
 
 server.listen(5000, () => console.log('Starting server on port 5000') );
