@@ -33,4 +33,4 @@ io.on('connection', socket => {
 });
 
 
-server.listen(5000, () => console.log('Starting server on port 5000') );
+server.listen(process.env.port || 5000, () => console.log('Starting server on port 5000') );
