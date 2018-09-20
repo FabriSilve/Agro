@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+	<head>
+		<title>Agro test</title>
+		<base href="/">
+		<script src="/socket.io/socket.io.js"></script>
+		<link rel="stylesheet" href="/static/style.css">
+	</head>
+
+	<body>
+
+		<ul>
+			<li><a href="#home" onClick="draw('HOME')">Home</a></li>
+			<li><a href="#arena" onClick="draw('LOGIN')">Arena</a></li>
+			<li><a href="#ranking" onClick="draw('RANKING')">Ranking</a></li>
+			<li><a href="#about" onClick="draw('ABOUT')">About</a></li>
+		</ul>
+
+		<div id="main"></div>
+	</body>
+
+	<script src="/static/game.js"></script>
+	<script src="/static/pages.js"></script>
+	<script src="/static/navigation.js"></script>
+</html>
