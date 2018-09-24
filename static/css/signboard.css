@@ -1,0 +1,71 @@
+.closed-signboard {
+  width: 200px;
+  height: 150px;
+  margin: 35px auto;
+  position: relative;
+  transform: scale(1) rotatez(7deg) translate(-17px, 1px);
+}
+
+.sign {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  background: #e00909;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 7px / 10px;
+  text-shadow: 0 2px #700a03;
+}
+
+.strings {
+  width: 75px;
+  height: 75px;
+  border: solid 5px #ad5700;
+  border-bottom: none;
+  border-right: none;
+  position: absolute;
+  top: 12px;
+  left: 60px;
+  transform: rotatez(45deg);
+}
+
+.pin {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  border-radius: 12px;
+}
+
+.pin.pin1 {
+  background: #9f9f9f;
+  top: 0;
+  left: 90px;
+}
+
+.pin.pin2, .pin.pin3 {
+  background: #9c0a00;
+}
+
+.pin.pin2 {
+  top: 55px;
+  left: 40px;
+}
+
+.pin.pin3 {
+  top: 55px;
+  right: 40px;
+}
+
+@keyframes init {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,40 @@
+@import url("./home.css");
+@import url("./signboard.css");
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  width: 100%;
+  height: 100vh;
+}
+
+.container {
+  width: 10rem;
+  height: 15rem;
+  background-color: red;
+}
+
+.card {
+  width: 10rem;
+  height: 15rem;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+/*JOIN*/
+.join {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background-color: grey;
+  color: white;
+}
