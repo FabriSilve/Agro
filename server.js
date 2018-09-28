@@ -15,7 +15,22 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'static/index.html'));
 });
 
+app.get('/users', (req, res) => {
+	res.end(JSON.stringify(players));
+});
+
 let players = {};
+let lord = null;
+
+
+/*
+userModel = {
+	username: string,
+	date: Date,
+	win: number,
+	edition: Edition.Type,
+}
+*/
 
 io.on('connection', socket => {
 	socket.on('NEW_PLAYER', (data) => {
