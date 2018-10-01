@@ -7,6 +7,11 @@ var app = express();
 var server = http.Server(app);
 var io = socketIO(server);
 
+let number = 0;
+let players = {};
+let lord = null;
+
+
 app.set('port', 5000);
 console.log(__dirname);
 app.use('/static', express.static(__dirname + '/static'));
@@ -15,12 +20,21 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname, 'static/index.html'));
 });
 
+app.get('/index*', (req, res) => {
+	res.redirect('/');
+});
+
+app.get('/arena', (req, res) => {
+	res.sendFile(path.join(__dirname, 'static/arena.html'));
+});
+
 app.get('/users', (req, res) => {
 	res.end(JSON.stringify(players));
 });
 
-let players = {};
-let lord = null;
+app.get('/number', (req, res) => {
+	res.end(JSON.stringify({ number: number}))
+});
 
 
 /*
