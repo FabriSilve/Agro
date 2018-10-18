@@ -1,12 +1,18 @@
 
 # dependencies
 /node_modules
+/frontend/node_modules
+/server/node_modules
 
 # testing
 /coverage
+/frontend/coverage
+/server/coverage
 
 # production
 /build
+/frontend/build
+/server/build
 
 # misc
 .DS_Store
