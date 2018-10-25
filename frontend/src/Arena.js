@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/fireball.gif';
 import { connect } from 'react-redux';
 import './App.css';
 import { udpateNumber } from './actions';
