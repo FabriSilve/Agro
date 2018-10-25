@@ -5,6 +5,15 @@ import './App.css';
 import { udpateNumber } from './actions';
 import socketIOClient from "socket.io-client";
 
+const styles = {
+  button: {
+    width: '10rem',
+    height: '3rem',
+    borderRadius: '1.5rem',
+    margin: '1rem',
+  },
+};
+
 class Arena extends Component {
 
   constructor() {
@@ -36,7 +45,7 @@ class Arena extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Username: {this.props.username}</p>
-          <button onClick={this.handleClick}>Number: {this.state.number}</button>
+          <button style={styles.button} onClick={this.handleClick}>Number: {this.state.number}</button>
         </header>
       </div>
     );
