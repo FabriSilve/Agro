@@ -21,6 +21,7 @@ class Arena extends Component {
     this.state = {
       socket: null,
       number: 0,
+      users: [],
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -29,8 +30,8 @@ class Arena extends Component {
   componentDidMount() {
     const socket = socketIOClient('http://localhost:5000');
     socket.on("NUMBER_UPDATED", data => this.setState({ number: data.number }));
+    socket.on('USERS_UPDATED', data => this.setState({ users: data }));
     socket.emit('NEW_PLAYER', { username: this.props.username });
-    console.log(socket);
     this.setState({ socket: socket })
   }
 
@@ -46,6 +47,9 @@ class Arena extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <p>Username: {this.props.username}</p>
           <button style={styles.button} onClick={this.handleClick}>Number: {this.state.number}</button>
+          <p>
+            {this.state.users.map( u => (u.username)}
+          </p>
         </header>
       </div>
     );
