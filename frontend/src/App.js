@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button } from "@blueprintjs/core";
 import { connect } from 'react-redux';
 import { addUsername } from './actions';
-import logo from './logo.svg';
+import logo from './assets/fireball.gif';
 import './App.css';
 
 class App extends Component {
