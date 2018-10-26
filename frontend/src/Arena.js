@@ -28,28 +28,30 @@ class Arena extends Component {
   }
 
   componentDidMount() {
+    if(!this.props.username) {
+      this.props.history.push('/');
+      return;
+    }
     const socket = socketIOClient('http://localhost:5000');
-    socket.on("NUMBER_UPDATED", data => this.setState({ number: data.number }));
+    socket.on('NUMBER_UPDATED', data => this.setState({ number: data.number }));
     socket.on('USERS_UPDATED', data => this.setState({ users: data }));
     socket.emit('NEW_PLAYER', { username: this.props.username });
     this.setState({ socket: socket })
   }
 
-  handleClick() {
-    console.log(this);
+  handleClick(e) {
+    e.preventDefault();
     this.state.socket.emit('INCREMENT_NUMBER', {});
   }
 
   render() {
+    console.log(this.state.users);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Username: {this.props.username}</p>
           <button style={styles.button} onClick={this.handleClick}>Number: {this.state.number}</button>
-          <p>
-            {this.state.users.map( u => (u.username)}
-          </p>
         </header>
       </div>
     );
