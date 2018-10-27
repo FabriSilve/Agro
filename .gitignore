@@ -3,6 +3,8 @@
 /node_modules
 /frontend/node_modules
 /server/node_modules
+/server/package-*
+/frontend/package-*
 
 # testing
 /coverage
@@ -13,6 +15,7 @@
 /build
 /frontend/build
 /server/build
+/server/static
 
 # misc
 .DS_Store
