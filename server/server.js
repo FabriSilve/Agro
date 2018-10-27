@@ -20,22 +20,6 @@ app.get('/', (req, res) => {
 	res.end('Agro server api');
 });
 
-app.get('/index*', (req, res) => {
-	res.redirect('/');
-});
-
-app.get('/arena', (req, res) => {
-	res.sendFile('ARENA');
-});
-
-app.get('/arena/users', (req, res) => {
-	res.end(JSON.stringify(players));
-});
-
-app.get('/arena/number', (req, res) => {
-	res.end(JSON.stringify({ number: number}))
-});
-
 
 /*
 userModel = {
@@ -53,6 +37,7 @@ io.on('connection', socket => {
 			username: data.username,
 			colors: [ 'red', 'green', 'blue'],
 		};
+		io.emit('USERS_UPDATED', Object.values(players));
 		console.log(players);
 	});
 

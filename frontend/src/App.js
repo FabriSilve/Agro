@@ -2,12 +2,28 @@ import React, { Component } from 'react';
 import { Button } from "@blueprintjs/core";
 import { connect } from 'react-redux';
 import { addUsername } from './actions';
-import logo from './logo.svg';
+import logo from './assets/fireball.gif';
 import './App.css';
 
+const styles = {
+  button: {
+    width: '10rem',
+    height: '3rem',
+    borderRadius: '1.5rem',
+    margin: '1rem',
+  },
+  input: {
+    width: '20rem',
+    height: '3rem',
+    margin: '1rem',
+    fontSize: '2rem',
+    borderRadius: '1.5rem',
+  },
+};
+
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       username: '',
     }
@@ -33,8 +49,8 @@ class App extends Component {
           <p>
             Chose your username!
           </p>
-          <input className="bp3-input bp3-round .modifier" type="text" placeholder="Username" dir="auto" onChange={this.handleChange} />
-          <Button className="bp3-round" intent="success" text="Play" onClick={this.handleClick} />
+          <input style={styles.input} className="bp3-input bp3-round .modifier" type="text" placeholder="Username" dir="auto" onChange={this.handleChange} />
+          <Button style={styles.button} className="bp3-round" intent="success" text="Play" onClick={this.handleClick} />
         </header>
       </div>
     );

@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './assets/fireball.gif';
 import { connect } from 'react-redux';
 import './App.css';
 import { udpateNumber } from './actions';
 import socketIOClient from "socket.io-client";
+
+const styles = {
+  button: {
+    width: '10rem',
+    height: '3rem',
+    borderRadius: '1.5rem',
+    margin: '1rem',
+  },
+};
 
 class Arena extends Component {
 
@@ -12,31 +21,37 @@ class Arena extends Component {
     this.state = {
       socket: null,
       number: 0,
+      users: [],
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
+    if(!this.props.username) {
+      this.props.history.push('/');
+      return;
+    }
     const socket = socketIOClient('http://localhost:5000');
-    socket.on("NUMBER_UPDATED", data => this.setState({ number: data.number }));
+    socket.on('NUMBER_UPDATED', data => this.setState({ number: data.number }));
+    socket.on('USERS_UPDATED', data => this.setState({ users: data }));
     socket.emit('NEW_PLAYER', { username: this.props.username });
-    console.log(socket);
     this.setState({ socket: socket })
   }
 
-  handleClick() {
-    console.log(this);
+  handleClick(e) {
+    e.preventDefault();
     this.state.socket.emit('INCREMENT_NUMBER', {});
   }
 
   render() {
+    console.log(this.state.users);
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>Username: {this.props.username}</p>
-          <button onClick={this.handleClick}>Number: {this.state.number}</button>
+          <button style={styles.button} onClick={this.handleClick}>Number: {this.state.number}</button>
         </header>
       </div>
     );
