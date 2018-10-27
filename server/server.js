@@ -17,7 +17,7 @@ console.log(__dirname);
 app.use('/static', express.static(__dirname + '/static'));
 
 app.get('/', (req, res) => {
-	res.end('Agro server api');
+	res.sendFile(path.join(__dirname + '/static/index.html'));
 });
 
 app.get('/index*', (req, res) => {
