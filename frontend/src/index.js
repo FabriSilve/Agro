@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Main from './Main';
-
 import { Router } from 'react-router-dom';
-import createBrowserHistory from 'history/createBrowserHistory';
-
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+import { Main } from './components';
 import rootReducer from './reducers';
+
+import './styles/index.css';
 
 
 const history = createBrowserHistory();

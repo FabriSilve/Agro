@@ -38,6 +38,7 @@ io.on('connection', socket => {
 			colors: [ 'red', 'green', 'blue'],
 		};
 		io.emit('USERS_UPDATED', Object.values(players));
+		io.emit('NUMBER_UPDATED', { number: number, });
 		console.log('New Player: ', data.username);
 	});
 

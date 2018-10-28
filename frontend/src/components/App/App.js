@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Button } from "@blueprintjs/core";
 import { connect } from 'react-redux';
-import { addUsername } from './actions';
-import logo from './assets/fireball.gif';
-import './App.css';
+
+import { addUsername } from '../../actions';
+
+import logo from '../../assets/fireball.gif';
+
 
 const styles = {
   button: {

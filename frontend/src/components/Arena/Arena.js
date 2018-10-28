@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import logo from './assets/fireball.gif';
 import { connect } from 'react-redux';
-import './App.css';
-import { udpateNumber } from './actions';
 import socketIOClient from "socket.io-client";
+
+import { udpateNumber } from '../../actions';
+
+import logo from '../../assets/fireball.gif';
+
 
 const styles = {
   button: {
