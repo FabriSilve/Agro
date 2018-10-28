@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import {
-  App,
-  Arena,
-} from '../';
+
+import App from './App';
+import Arena from './Arena';
 
 const Main = () => (
   <Switch>

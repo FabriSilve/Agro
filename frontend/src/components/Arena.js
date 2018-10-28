@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import socketIOClient from "socket.io-client";
 
-import { udpateNumber } from '../../actions';
+import { udpateNumber } from '../actions';
 
-import logo from '../../assets/fireball.gif';
+import logo from '../assets/fireball.gif';
 
 
 const styles = {
