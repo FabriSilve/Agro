@@ -16,7 +16,7 @@ app.set('port', 5000);
 console.log(__dirname);
 app.use('/static', express.static(__dirname + '/static'));
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/static/index.html'));
 });
 
@@ -38,7 +38,7 @@ io.on('connection', socket => {
 			colors: [ 'red', 'green', 'blue'],
 		};
 		io.emit('USERS_UPDATED', Object.values(players));
-		console.log(players);
+		console.log('New Player: ', data.username);
 	});
 
 	socket.on('INCREMENT_NUMBER', (data) => {
@@ -50,7 +50,7 @@ io.on('connection', socket => {
 	});
 
 	socket.on('disconnect', () => {
-    		console.log('user disconnected', socket.id);
+		console.log('Disconnect: ', players[socket.id].username);
 		delete players[socket.id];
   	});
 });

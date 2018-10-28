@@ -45,7 +45,6 @@ class Arena extends Component {
   }
 
   render() {
-    console.log(this.state.users);
     return (
       <div className="App">
         <header className="App-header">
